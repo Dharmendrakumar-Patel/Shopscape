@@ -9,7 +9,7 @@ export const instance = axios.create({
 export const signUp = async (payload) => {
     try {
         const response = await instance.post('/user/signup', payload);
-        localStorage.setItem("webBrain", response.data.token);
+        localStorage.setItem("Shopscape", response.data.token);
         return response.data.user;
     } catch (error) {
         errorHandler(error);
@@ -19,7 +19,7 @@ export const signUp = async (payload) => {
 export const signIn = async (payload) => {
     try {
         const response = await instance.post('/user/signin', payload)
-        localStorage.setItem("webBrain", response.data.token)
+        localStorage.setItem("Shopscape", response.data.token)
         return response.data.user;
     } catch (error) {
         errorHandler(error)
@@ -29,7 +29,7 @@ export const signIn = async (payload) => {
 export const logOut = async () => {
     try {
         const response = await instance.delete('/user/logout');
-        localStorage.removeItem("webBrain");
+        localStorage.removeItem("Shopscape");
         return response;
     } catch (error) {
         errorHandler(error)

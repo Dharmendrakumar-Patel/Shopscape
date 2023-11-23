@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "webBrain Backend",
+  "description": "Shopscape Backend",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "\"https://github.com/Dharmendrakumar-Patel/Interview-Project/webBrain\""
+    "url": "\"https://github.com/Dharmendrakumar-Patel/Shopscape\""
   },
   "keywords": [
     "\"mern\"",

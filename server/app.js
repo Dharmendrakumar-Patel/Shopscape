@@ -21,7 +21,7 @@ app.use(cors({
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('WebBrain Backend API');
+    res.send('Shopscape Backend API');
 });
 app.use('/api/v1/user', user);
 app.use('/api/v1/product', product);

@@ -11,7 +11,7 @@ function Home () {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (localStorage.getItem("webBrain")) {
+    if (localStorage.getItem("Shopscape")) {
       (async () => {
         const user = await getUser()
         const products = await getAllProduct()

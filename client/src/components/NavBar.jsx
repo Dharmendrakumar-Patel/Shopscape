@@ -82,7 +82,7 @@ function NavBar () {
                             flexGrow: user !== null && user.role === 'admin' ? 0 : 1,
                         }}
                     >
-                        WebBrain Store
+                        Shopscape Store
                     </Typography>
                     {
                         user !== null && user.role === 'admin' &&

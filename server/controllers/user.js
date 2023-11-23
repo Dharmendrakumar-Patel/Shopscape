@@ -157,7 +157,7 @@ exports.getUser = async (req, res, next) => {
 
 exports.logout = async (req, res, next) => {
     try {
-        res.clearCookie('webBrain');
+        res.clearCookie('Shopscape');
     
         return res.status(200).json({
             success: true,

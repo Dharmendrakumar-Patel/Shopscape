@@ -15,7 +15,7 @@ export const MainRoutes = () => {
         element: <Home />,
         errorElement: <ErrorPage />,
         loader: () => {
-            if (!localStorage.getItem("webBrain")) {
+            if (!localStorage.getItem("Shopscape")) {
                 return redirect("/signin")
             } else {
                 redirect("/")
@@ -50,7 +50,7 @@ export const MainRoutes = () => {
         element: <SignIn />,
         errorElement: <ErrorPage />,
         loader: () => {
-            if (localStorage.getItem("webBrain")) {
+            if (localStorage.getItem("Shopscape")) {
                 return redirect("/")
             } else {
                 return null
@@ -62,7 +62,7 @@ export const MainRoutes = () => {
         element: <Signup />,
         errorElement: <ErrorPage />,
         loader: () => {
-            if (localStorage.getItem("webBrain")) {
+            if (localStorage.getItem("Shopscape")) {
                 return redirect("/");
             } else {
                 return null;

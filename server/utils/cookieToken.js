@@ -6,7 +6,7 @@ const CookieToken = (user, res, status = 200) => {
         httpOnly: true,
     };
 
-    return res.status(status).cookie('webBrain', token, options).json({
+    return res.status(status).cookie('Shopscape', token, options).json({
         success: true,
         token: token,
         user,

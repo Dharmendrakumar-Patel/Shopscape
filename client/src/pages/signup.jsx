@@ -19,8 +19,8 @@ function Signup () {
       dispatch(addUser(user));
     }
 
-    //check if local storage has webBrain token
-    if (localStorage.getItem("webBrain")) {
+    //check if local storage has Shopscape token
+    if (localStorage.getItem("Shopscape")) {
       navigate("/");
     }
   };

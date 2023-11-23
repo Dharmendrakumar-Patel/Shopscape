@@ -15,7 +15,7 @@ const imageHandler = async (inputFiles, modelName, next) => {
         const photos = [];
         for (let i = 0; i < files.length; i++) {
             const result = await cloudinary.uploader.upload(files[i].path, {
-                folder: modelName === 'user' ? `webBrain/user-images` : `webBrain/product-images`,
+                folder: modelName === 'user' ? `Shopscape/user-images` : `Shopscape/product-images`,
             });
 
             photos.push({
