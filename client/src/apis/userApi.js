@@ -38,7 +38,11 @@ export const logOut = async () => {
 
 export const getUser = async () => {
     try {
-        const response = await instance.get('/user/')
+        const response = await instance.get('/user/',
+            {
+                params: { Shopscape: localStorage.getItem("Shopscape") }
+            },
+        )
         return response.data.user;
     } catch (error) {
         errorHandler(error)
@@ -48,7 +52,11 @@ export const getUser = async () => {
 
 export const addProductToCart = async (payload) => {
     try {
-        const response = await instance.put('/user/addProductToCart', payload);
+        const response = await instance.put('/user/addProductToCart', payload,
+            {
+                params: { Shopscape: localStorage.getItem("Shopscape") }
+            },
+        );
         return response.data.cart;
     } catch (error) {
         errorHandler(error);
@@ -56,11 +64,15 @@ export const addProductToCart = async (payload) => {
 };
 
 export const removeProductFromCart = async (payload) => {
-    console.log(Object.fromEntries(payload))
     try {
-        const response = await instance.delete('/user/removeProductFromCart', {
-            data: payload,
-        });
+        const response = await instance.delete('/user/removeProductFromCart',
+            {
+                data: payload,
+            },
+            {
+                params: { Shopscape: localStorage.getItem("Shopscape") }
+            },
+        );
         return response.data.cart;
     } catch (error) {
         errorHandler(error);

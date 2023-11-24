@@ -1,6 +1,5 @@
 const express = require('express');
 const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -13,7 +12,6 @@ const app = express();
 // Middlewares
 app.use(morgan('dev'));  // for logging
 app.use(express.json()); // for parsing application/json
-app.use(cookieParser()); // for parsing cookies
 app.use(cors({
     origin: process.env.CLIENT_URL,
     credentials: true

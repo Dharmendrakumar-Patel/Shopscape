@@ -6,9 +6,13 @@ export const instance = axios.create({
     withCredentials: true,
 });
 
-export const getAllProduct = async (payload) => {
+export const getAllProduct = async () => {
     try {
-        const response = await instance.get('/product/getAllProducts', payload);
+        const response = await instance.get('/product/getAllProducts',
+            {
+                params: { Shopscape: localStorage.getItem("Shopscape") }
+            },
+        );
         return response.data.sortedProducts;
     } catch (error) {
         errorHandler(error);
@@ -17,7 +21,11 @@ export const getAllProduct = async (payload) => {
 
 export const addProduct = async (payload) => {
     try {
-        await instance.post('/product/addProduct', payload);
+        await instance.post('/product/addProduct', payload,
+            {
+                params: { Shopscape: localStorage.getItem("Shopscape") }
+            },
+        );
     } catch (error) {
         errorHandler(error);
     }
@@ -29,7 +37,7 @@ export const updateProduct = async (id,payload) => {
             '/product/updateProduct',
             payload,
             {
-                params: { id }
+                params: { id: id, Shopscape: localStorage.getItem("Shopscape") }
             },
         );
         return response.data.products;
@@ -43,7 +51,7 @@ export const removeProduct = async (id) => {
         const response = await instance.delete(
             '/product/removeProduct',
             {
-                params: { id }
+                params: { id: id, Shopscape: localStorage.getItem("Shopscape") }
             },
         );
         return response.data.products;

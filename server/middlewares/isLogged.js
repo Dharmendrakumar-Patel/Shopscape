@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const CustomError = require('../utils/customError');
 
 const isLogged = (req, res, next) => {
-    const token = req.cookies.Shopscape;
+    const token = req.query.Shopscape;
 
     // validation for token
     if (!token) {
