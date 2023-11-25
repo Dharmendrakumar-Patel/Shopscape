@@ -28,8 +28,13 @@ export const signIn = async (payload) => {
 
 export const logOut = async () => {
     try {
-        const response = await instance.delete('/user/logout');
+        const response = await instance.delete('/user/logout',
+            {
+                params: { Shopscape: localStorage.getItem("Shopscape") }
+            },
+        );
         localStorage.removeItem("Shopscape");
+        localStorage.removeItem("persist:root");
         return response;
     } catch (error) {
         errorHandler(error)

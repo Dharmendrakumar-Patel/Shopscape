@@ -16,7 +16,6 @@ function EditProduct ({ product, onClose }) {
     const handleForm = async (e) => {
         e.preventDefault();
         const formdata = new FormData(e.currentTarget);
-        console.log(Object.fromEntries(formdata));
         await updateProduct(product._id, formdata);
         await getAllProduct()
         onClose()
@@ -32,7 +31,6 @@ function EditProduct ({ product, onClose }) {
             <div className='flex w-[45%] md:mr-5 border border-grey-100 overflow-x-scroll'>
               {
                     product !== null && product?.photos?.map((photo, index) => {
-                        console.log(photo);
                         return <img key={index} src={photo.url} alt={product.name} className='w-[100%] max-h-[350px] object-cover p-2' />;
                     })
               }

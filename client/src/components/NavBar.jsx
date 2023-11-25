@@ -47,7 +47,6 @@ function NavBar () {
     const handleNavMenu = (page) => { 
         switch (page) {
             case 'Products':
-                console.log('Products')
                 navigate('/products')
                 break;
         }

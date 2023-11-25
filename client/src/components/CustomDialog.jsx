@@ -10,8 +10,6 @@ import EditProduct from './EditProduct';
 function CustomDialog (props) {
     const { onClose, selectedValue, open, name } = props;
 
-    console.log('selectedValue', selectedValue)
-
     const handleClose = () => {
         onClose();
     }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -19,10 +19,6 @@ function ProductList () {
     const [selectedValue, setSelectedValue] = useState(null);
     const products = useSelector((state) => state.product.value);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        getAllProducts()
-    }, [])
     
     const handleClickOpen = () => {
         setOpen(true);

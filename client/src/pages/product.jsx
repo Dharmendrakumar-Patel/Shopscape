@@ -1,22 +1,10 @@
-import { useEffect } from 'react';
-import { getAllProduct } from '../apis/productApi';
-import { useSelector, useDispatch } from 'react-redux';
-import { addProduct } from '../redux/product/productSlice';
+import { useSelector } from 'react-redux';
 import CustomCard from '../components/CustomCard';
 import Grid from '@mui/material/Unstable_Grid2';
 
 function Product () {
     const products = useSelector((state) => state.product.value);
-    const dispatch = useDispatch();
 
-    useEffect(() => {
-        getAllProducts()
-    }, [])
-
-    const getAllProducts = async () => {
-        const products = await getAllProduct();
-        dispatch(addProduct(products));
-    }
   return (
         <div className="w-screen h-auto p-0 m-0 bg-transparent">
             <h1 className="max-w-[280px] sm:max-w-[90%] mx-auto pt-[7vh] text-left text-2xl font-bold">Product List</h1>
