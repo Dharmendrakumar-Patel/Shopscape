@@ -8,6 +8,32 @@ const checkExistingEmail = async (email) => {
     return existingUser !== null;
 };
 
+exports.getAllUser = async (req, res, next) => {
+    try {
+        const users = await User.find();
+
+        // validation for users
+        if (!users) {
+            new CustomError('Users not found', 404).logError();
+            return res.status(404).json({
+                success: false,
+                message: 'Users not found'
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            users
+        });
+    } catch (error) {
+        new CustomError(error, 401).logError();
+        return res.status(401).json({
+            success: false,
+            message: error.message
+        });
+    }
+}
+
 exports.signup = async (req, res, next) => {
     try {
         const { name, email, password } = req.body;
@@ -154,6 +180,38 @@ exports.getUser = async (req, res, next) => {
         });
     }
 };
+
+exports.updateUser = async (req, res, next) => {
+    try {
+        const { id } = req.query;
+        const { name, email, role } = req.body;
+
+        const user = await User.findByIdAndUpdate(id, {
+            name,
+            email,
+            role,
+        }, { new: true });
+
+        // validation for user
+        if (!user) {
+            return res.status(401).json({
+                success: false,
+                message: 'Product not updated'
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            user
+        });
+    } catch (error) {
+        new CustomError('User not updated', 401).logError();
+        return res.status(401).json({
+            success: false,
+            message: error.message
+        });
+    }
+}
 
 exports.logout = async (req, res, next) => {
     try {
