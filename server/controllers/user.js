@@ -230,6 +230,47 @@ exports.logout = async (req, res, next) => {
     }
 };
 
+exports.removeUser = async (req, res, next) => {
+    try {
+        const { id } = req.query;
+
+        // validation for user id
+        if (!id) {
+            new CustomError('Please provide user id', 401).logError();
+            return res.status(401).json({
+                success: false,
+                message: 'Please provide user id'
+            });
+        }
+
+        // get user by id
+        const user = await User.findByIdAndDelete(id);
+
+        console.log(user);
+
+        // validation for user
+        if (!user) {
+            new CustomError('User not found', 401).logError();
+            return res.status(401).json({
+                success: false,
+                message: 'User not found'
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: 'User deleted successfully'
+        });
+        
+    } catch (error) {
+        new CustomError(error, 401).logError();
+        return res.status(401).json({
+            success: false,
+            message: error.message
+        });
+    }
+}
+
 exports.addProductToCart = async (req, res, next) => {
     const { productId, quantity } = req.body;
 

@@ -54,6 +54,18 @@ export const getUser = async () => {
     }
 };
 
+export const getAllUser = async () => {
+    try {
+        const response = await instance.get('/user/getAllUser',
+            {
+                params: { Shopscape: localStorage.getItem("Shopscape") }
+            },
+        );
+        return response.data.users;
+    } catch (error) {
+        errorHandler(error);
+    }
+};
 
 export const addProductToCart = async (payload) => {
     try {
@@ -63,6 +75,20 @@ export const addProductToCart = async (payload) => {
             },
         );
         return response.data.cart;
+    } catch (error) {
+        errorHandler(error);
+    }
+};
+
+export const removeUser = async (payload) => {
+    try {
+        const response = await instance.delete('/user/removeUser',
+            {
+                params: { Shopscape: localStorage.getItem("Shopscape") },
+                id: payload,
+            },
+        );
+        return response.data;
     } catch (error) {
         errorHandler(error);
     }

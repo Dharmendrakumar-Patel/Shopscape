@@ -6,12 +6,24 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import DetailedProduct from './DetailedProduct';
 import EditProduct from './EditProduct';
+import EditUser from './EditUser';
 
 function CustomDialog (props) {
     const { onClose, selectedValue, open, name } = props;
 
     const handleClose = () => {
         onClose();
+    }
+
+    const handleDialogContent = () => {
+        switch (name) {
+            case 'DetailedProduct':
+                return <DetailedProduct product={selectedValue} onClose={() => handleClose()} />
+            case 'EditProduct':
+                return <EditProduct product={selectedValue} onClose={() => handleClose()} />
+            case 'EditUser':
+                return <EditUser user={selectedValue} onClose={() => handleClose()} />
+        }
     }
 
     return (
@@ -41,12 +53,7 @@ function CustomDialog (props) {
                 <CloseIcon />
             </IconButton>
             <DialogContent dividers={true}>
-                {
-                    name === 'DetailedProduct' ?
-                        <DetailedProduct product={selectedValue} onClose={() => handleClose()} />
-                        :
-                        <EditProduct product={selectedValue} onClose={() => handleClose()} />
-                }
+                {handleDialogContent(name)}
             </DialogContent>
         </Dialog>
     );

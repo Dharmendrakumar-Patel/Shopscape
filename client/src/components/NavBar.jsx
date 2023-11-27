@@ -19,7 +19,7 @@ import { useSelector } from 'react-redux';
 import { NavLink, useNavigate } from "react-router-dom";
 import { logOut } from "../apis/userApi";
 
-const pages = ['Products'];
+const pages = ['Products', 'Users'];
 const settings = ['Logout'];
 
 function NavBar () {
@@ -48,6 +48,9 @@ function NavBar () {
         switch (page) {
             case 'Products':
                 navigate('/products')
+                break;
+            case 'Users':
+                navigate('/users')
                 break;
         }
     }

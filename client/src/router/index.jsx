@@ -4,6 +4,7 @@ import Signup from '../pages/signup.jsx'
 import Product from '../pages/product.jsx';
 import Uploadproduct from '../pages/uploadproduct.jsx';
 import ProductList from '../pages/productList.jsx';
+import UserList from '../pages/userList.jsx';
 import Cart from '../pages/cart.jsx';
 import ErrorPage from '../components/ErrorPage.jsx'
 import { redirect } from 'react-router-dom';
@@ -31,6 +32,11 @@ export const MainRoutes = () => {
             {
                 path: "/cart",
                 element: <Cart />,
+                errorElement: <ErrorPage />,
+            },
+            {
+                path: "/users",
+                element: <UserList />,
                 errorElement: <ErrorPage />,
             },
             {
