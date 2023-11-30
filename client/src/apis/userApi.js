@@ -54,6 +54,19 @@ export const getUser = async () => {
     }
 };
 
+export const updateUser = async (payload) => {
+    try {
+        const response = await instance.put('/user/updateUser', payload,
+            {
+                params: { Shopscape: localStorage.getItem("Shopscape") }
+            },
+        );
+        return response.data.user;
+    } catch (error) {
+        errorHandler(error);
+    }
+}
+
 export const getAllUser = async () => {
     try {
         const response = await instance.get('/user/getAllUser',

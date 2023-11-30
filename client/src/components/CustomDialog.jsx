@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import DetailedProduct from './DetailedProduct';
 import EditProduct from './EditProduct';
+import EditUser from './EditUser';
 
 function CustomDialog (props) {
     const { onClose, selectedValue, open, name } = props;
@@ -21,7 +22,7 @@ function CustomDialog (props) {
             case 'EditProduct':
                 return <EditProduct product={selectedValue} onClose={() => handleClose()} />
             case 'EditUser':
-                return <EditProduct product={selectedValue} onClose={() => handleClose()} />
+                return <EditUser user={selectedValue} onClose={() => handleClose()} />
         }
     }
 
