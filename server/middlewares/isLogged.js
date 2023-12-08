@@ -4,6 +4,8 @@ const CustomError = require('../utils/customError');
 const isLogged = (req, res, next) => {
     const token = req.query.Shopscape
 
+    console.log(req.params)
+
     // validation for token
     if (!token) {
         new CustomError('Please login to access this route', 401).logError();

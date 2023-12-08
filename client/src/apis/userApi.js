@@ -108,6 +108,7 @@ export const removeUser = async (payload) => {
 };
 
 export const removeProductFromCart = async (payload) => {
+    console.log(payload + " " + localStorage.getItem("Shopscape"))
     try {
         const response = await instance.delete('/user/removeProductFromCart',
             {
